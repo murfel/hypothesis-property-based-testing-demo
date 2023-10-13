@@ -11,7 +11,7 @@ class Node:
 
 def __post_init__(self) -> None:
     if self.value < 0:
-        raise ValueError("Value must be a positive number")
+        raise ValueError("Value must be a non-negative number")
 
 
 def node_height(node: Node) -> int:
