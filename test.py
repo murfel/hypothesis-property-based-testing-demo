@@ -8,6 +8,7 @@ TerminalNodeStrategy = st.builds(Node, NodeValue)
 NodeStrategy = st.deferred(lambda: TreeStrategy | TerminalNodeStrategy)
 TreeStrategy = st.builds(Node, NodeValue, NodeStrategy, NodeStrategy)
 
+# TODO: Find a way to define a strategy, parametrized by another strategy (TreeStrategy parametrized by NodeValue)
 PositiveNodeValue = st.integers(1)
 PositiveTerminalNodeStrategy = st.builds(Node, PositiveNodeValue)
 PositiveNodeStrategy = st.deferred(lambda: PositiveTreeStrategy | PositiveTerminalNodeStrategy)
