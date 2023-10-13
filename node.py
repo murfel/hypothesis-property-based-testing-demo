@@ -15,32 +15,31 @@ def __post_init__(self) -> None:
 
 
 def node_height(node: Node) -> int:
-    h = 1
+    height = 1
     if node.left is not None:
-        h = max(h, node_height(node.left) + 1)
+        height = max(height, node_height(node.left) + 1)
     if node.right is not None:
-        h = max(h, node_height(node.right) + 1)
-    return h
+        height = max(height, node_height(node.right) + 1)
+    return height
 
 
 def node_size(node: Node) -> int:
-    s = 1
+    size = 1
     if node.left is not None:
-        s += node_size(node.left)
+        size += node_size(node.left)
     if node.right is not None:
-        s += node_size(node.right)
-    return s
+        size += node_size(node.right)
+    return size
 
 
 def node_sum(node: Node) -> int:
-    sum = 0
-    st = [node]
-    while st:
-        cur = st.pop()
-        sum += cur.value
-        if cur.left is not None:
-            st.append(cur.left)
-        if cur.right is not None:
-            st.append(cur.right)
-
-    return sum
+    value_sum = 0
+    stack = [node]
+    while stack:
+        node = stack.pop()
+        value_sum += node.value
+        if node.left is not None:
+            stack.append(node.left)
+        if node.right is not None:
+            stack.append(node.right)
+    return value_sum
